@@ -1,0 +1,52 @@
+image:
+  tag: "dev"
+
+configs:
+  - name: "test-serviceA"
+    path: configs/"test-serviceA"-config
+
+container:
+  name: "test-serviceA"
+  port: 8080
+
+volume_mount:
+  - mountName: app-config
+    mountPath: /config/application.properties
+    subPath: application.properties
+
+volume:
+  name: "test-serviceA"
+
+secrets:
+  - envname: MONGODB_USERNAME
+    key: username
+    secretname: mtx-mongodb-user-secret
+  - envname: MONGODB_PASSWORD
+    key: password
+    secretname: mtx-mongodb-user-secret
+  - envname: KEYCLOAK_CLIENT_SECRET
+    key: prgx.mtx-attachment-record-deletion-service.client-secret
+    secretname: prgx-services-client-secret
+
+envhardcoded:
+  - name: JDK_JAVA_OPTIONS
+    value: '-Djava.net.preferIPv4Stack=true'
+
+service:
+  - servicename: "test-serviceA"
+    name: http
+    port: 8080
+    targetPort: 8080
+    protocol: TCP
+
+resources:
+  limits:
+    cpu: '1'
+    memory: 1Gi
+  requests:
+    cpu: 100m
+    memory: 64Mi
+
+common_config:
+  volume: true
+  mount: true

@@ -1,2 +1,1 @@
-# test-ansible
-this repo is for the testing of the ansible
+This repository is for Ansible Testing. 

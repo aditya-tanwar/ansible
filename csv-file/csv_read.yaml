@@ -1,0 +1,17 @@
+---
+- name: Playbook to read from the csv file 
+  hosts: localhost 
+  become: true 
+  tasks:
+   - name: reading from the csv file 
+     read_csv:
+      path: test.csv
+      key: hostname
+     register: server_details 
+
+   - debug: 
+       var: server_details 
+
+   - debug: 
+       msg: "{{ item.key }} - {{ item.value.mac }} - {{ item.value.destination_ip }}"
+     loop: "{{ server_details.dict|dict2items }}"

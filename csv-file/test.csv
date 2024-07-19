@@ -1,0 +1,4 @@
+hostname,mac,idracIP,destination_ip,gateway
+test_name_a,12:34:56:78,9.9.9.9,10.1.1.1/24,10.1.1.0
+test_name_b,34:56:g6:34,9.9.9.9,10.1.2.1/24,10.1.1.0
+test_name_c,07:78:g6:34,9.9.9.9,10.1.3.1/24,10.1.1.0

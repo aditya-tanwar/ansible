@@ -1,7 +1,7 @@
 ---
 - name: Playbook to read from the csv file 
   hosts: localhost 
-  become: true 
+  #become: true 
   tasks:
    - name: reading from the csv file 
      community.general.read_csv:

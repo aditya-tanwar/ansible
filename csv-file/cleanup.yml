@@ -1,0 +1,9 @@
+# cleanup.yml
+- name: Cleanup temporary files
+  hosts: all
+  become: yes
+  tasks:
+    - name: Remove temporary files
+      file:
+        path: /tmp/*
+        state: absent
